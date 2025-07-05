@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaStar, FaMapMarkerAlt } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const MENU_ITEMS = [
     { key: 'harga', label: '💰 Harga' },
@@ -108,6 +109,21 @@ const PulauPahawang1D = () => {
         <div className="container my-5">
             {/* GALLERY */}
             <div className="row g-2 mb-4">
+                {/* Breadcrumb */}
+                <nav aria-label="breadcrumb" className="mb-1">
+                    <ol className="breadcrumb justify-content-left">
+                        <li className="breadcrumb-item">
+                            <Link to="/" className="text-decoration-none text-secondary">Home</Link>
+                        </li>
+                        <li className="breadcrumb-item">
+                            <Link to="/wisata" className="text-decoration-none text-secondary">Wisata</Link>
+                        </li>
+                        <li className="breadcrumb-item active text-dark fw-semibold" aria-current="page">
+                            Pulau
+                        </li>
+                    </ol>
+                </nav>
+
                 <div className="col-md-8">
                     <img
                         src={allImages[0]}
