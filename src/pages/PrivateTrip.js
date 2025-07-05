@@ -1,8 +1,9 @@
 import React from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
-import 'bootstrap/dist/js/bootstrap.bundle.min.js';
+import { Link } from 'react-router-dom'; // ✅ Tambahkan ini
+import { getGradient } from '../utils/colors';
+const aplikasi = JSON.parse(localStorage.getItem('aplikasi'));
 
-function HeroSection() {
+function PrivateTrip() {
     const packages = [
         {
             title: 'Pulau Pahawang 1 Hari',
@@ -46,43 +47,10 @@ function HeroSection() {
         },
     ];
 
-    const sliderImages = [
-        "https://www.zazatourjogja.com/images/slider/slider-1-85.png",
-        "https://fcviktoria.cz/foto/fansMUcl.png",
-        "https://www.designyourway.net/blog/wp-content/uploads/2024/04/chelsea-logo.jpg"
-    ];
-
     return (
         <section className="container-fluid p-0 position-relative">
-            {/* Carousel Gambar */}
-            <div id="heroCarousel" className="carousel slide" data-bs-ride="carousel">
-                <div className="carousel-inner">
-                    {sliderImages.map((img, idx) => (
-                        <div key={idx} className={`carousel-item ${idx === 0 ? 'active' : ''}`}>
-                            <img
-                                src={img}
-                                alt={`Slide ${idx + 1}`}
-                                className="d-block w-100"
-                                style={{ height: 'auto', maxHeight: '100vh', objectFit: 'cover' }}
-                            />
-                        </div>
-                    ))}
-                </div>
-
-                {/* Tombol navigasi */}
-                <button className="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-                    <span className="carousel-control-prev-icon" aria-hidden="true" />
-                    <span className="visually-hidden">Previous</span>
-                </button>
-                <button className="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-                    <span className="carousel-control-next-icon" aria-hidden="true" />
-                    <span className="visually-hidden">Next</span>
-                </button>
-            </div>
-
-            {/* Paket wisata cards */}
             <div className="container my-5 position-relative" style={{ zIndex: 1 }}>
-                <h3 className="text-center fw-bold mb-4">PILIHAN PAKET WISATA KITAlIBURAN.id</h3>
+                <h3 className="text-center fw-bold mb-4">PILIHAN PAKET PRIVATE TRIP HALOPAHAWANG</h3>
                 <div className="row g-4 justify-content-center">
                     {packages.map((pkg, index) => (
                         <div key={index} className="col-12 col-md-4 col-lg-3">
@@ -100,12 +68,13 @@ function HeroSection() {
                                         <small>Harga Mulai</small>
                                         <h5 className="fw-bold mb-0">{pkg.price}</h5>
                                     </div>
-                                    <button
-                                        className="btn"
-                                        style={{ backgroundColor: '#b6df41', fontWeight: 'bold' }}
+                                    <Link
+                                        to="/wisata/detail-wisata" // ✅ Ganti sesuai route detail kamu
+                                        className="btn text-white"
+                                        style={{ background: getGradient(aplikasi) }}
                                     >
                                         Klik DETAIL
-                                    </button>
+                                    </Link>
                                 </div>
                             </div>
                         </div>
@@ -116,4 +85,4 @@ function HeroSection() {
     );
 }
 
-export default HeroSection;
+export default PrivateTrip;
