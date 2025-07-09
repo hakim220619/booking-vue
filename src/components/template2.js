@@ -49,55 +49,82 @@ const Template2 = ({ title, description, tripInfo, price, onBooking }) => {
                         {/* Gambar */}
                         <div className="col-md-6" style={{ borderRight: `0.5px solid ${borderColor}` }}>
                             <div className="d-flex flex-column h-100">
-                                <div style={{ height: '160px' }}>
+                                {/* Gambar utama */}
+                                <div style={{ width: '100%', maxHeight: '220px', overflow: 'hidden' }}>
                                     <img
                                         src={allImages[0]}
                                         alt="Preview"
-                                        style={{ width: '100%', height: '100%', objectFit: 'cover', cursor: 'pointer' }}
+                                        style={{
+                                            width: '100%',
+                                            height: '100%',
+                                            objectFit: 'cover',
+                                            cursor: 'pointer',
+                                            borderRadius: '4px',
+                                        }}
                                         onClick={() => setShowModal(true)}
                                     />
                                 </div>
-                                <div className="row g-0 text-center" style={{ height: '60px' }}>
+
+                                {/* Galeri kecil */}
+                                <div className="row g-0 mt-2">
                                     {[1, 2, 3].map((_, i) => (
-                                        <div key={i} className="col" style={{ height: '175%' }}>
-                                            <div style={{ width: '100%', height: '100%' }}>
-                                                <img
-                                                    src={allImages[i + 1]}
-                                                    alt={`Gallery ${i + 1}`}
-                                                    style={{
-                                                        width: '100%',
-                                                        height: '100%',
-                                                        objectFit: 'cover',
-                                                        display: 'block',
-                                                        cursor: 'pointer'
-                                                    }}
-                                                    onClick={() => setShowModal(true)}
-                                                />
-                                            </div>
+                                        <div key={i} className="col-4 px-1">
+                                            <img
+                                                src={allImages[i + 1]}
+                                                alt={`Gallery ${i + 1}`}
+                                                style={{
+                                                    width: '100%',
+                                                    height: '70px',
+                                                    objectFit: 'cover',
+                                                    borderRadius: '4px',
+                                                    cursor: 'pointer',
+                                                }}
+                                                onClick={() => setShowModal(true)}
+                                            />
                                         </div>
                                     ))}
                                 </div>
                             </div>
                         </div>
 
+
                         {/* Detail */}
-                        <div className="col-md-6 position-relative p-3">
-                            <h6 className="fw-bold">OPEN TRIP | {tripInfo.title}</h6>
-                            <ul className="list-unstyled mt-3" style={{ fontSize: '0.95rem' }}>
-                                {tripInfo.details.map((item, idx) => (
-                                    <li key={idx}>
-                                        • <b>{item.label}</b> : {item.value}
-                                    </li>
-                                ))}
-                            </ul>
+                        <div className="col-md-6 d-flex flex-column justify-content-between p-3 position-relative">
+
+                            {/* MOBILE DETAIL SECTION */}
+                            <div className="d-block d-md-none mt-5 px-3 pb-3">
+                                <h6 className="fw-bold mb-3">OPEN TRIP | {tripInfo.title}</h6>
+                                <ul className="list-unstyled" style={{ fontSize: '0.95rem' }}>
+                                    {tripInfo.details.map((item, idx) => (
+                                        <li key={idx} className="mb-2">
+                                            • <b>{item.label}</b> : {item.value}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            {/* DESKTOP DETAIL SECTION */}
+                            <div className="d-none d-md-block">
+                                <h6 className="fw-bold mb-3">OPEN TRIP | {tripInfo.title}</h6>
+                                <ul className="list-unstyled" style={{ fontSize: '0.95rem' }}>
+                                    {tripInfo.details.map((item, idx) => (
+                                        <li key={idx} className="mb-2">
+                                            • <b>{item.label}</b> : {item.value}
+                                        </li>
+                                    ))}
+                                </ul>
+                            </div>
+
+                            {/* DESKTOP BOOKING BOX */}
                             <div
-                                className="position-absolute top-0 end-0 text-center"
+                                className="d-none d-md-block position-absolute top-0 end-0"
                                 style={{
                                     border: `0.5px solid ${borderColor}`,
-                                    // backgroundColor: aplikasi?.second_color,
                                     padding: '10px 15px',
                                     fontWeight: 'bold',
-                                    minWidth: '110px'
+                                    minWidth: '110px',
+                                    backgroundColor: '#f8f9fa',
+                                    borderRadius: '6px',
                                 }}
                             >
                                 <div>Harga</div>
@@ -105,7 +132,7 @@ const Template2 = ({ title, description, tripInfo, price, onBooking }) => {
                                     Rp <span style={{ fontSize: '1.3em' }}>{formatPrice(price)}</span>
                                 </div>
                                 <button
-                                    className="btn btn-sm mt-2"
+                                    className="btn btn-sm mt-2 w-100"
                                     onClick={onBooking}
                                     style={{
                                         backgroundColor: aplikasi?.main_color || aplikasi?.first_color,
@@ -115,9 +142,36 @@ const Template2 = ({ title, description, tripInfo, price, onBooking }) => {
                                 >
                                     BOOKING
                                 </button>
-
                             </div>
+
+                            {/* MOBILE BOOKING BOX */}
+                            <div
+                                className="d-block d-md-none mt-4 p-3 border rounded text-center"
+                                style={{
+                                    fontWeight: 'bold',
+                                    backgroundColor: '#f8f9fa',
+                                    borderColor: borderColor,
+                                }}
+                            >
+                                <div>Harga</div>
+                                <div>
+                                    Rp <span style={{ fontSize: '1.3em' }}>{formatPrice(price)}</span>
+                                </div>
+                                <button
+                                    className="btn btn-sm mt-2 w-100"
+                                    onClick={onBooking}
+                                    style={{
+                                        backgroundColor: aplikasi?.main_color || aplikasi?.first_color,
+                                        color: aplikasi?.first_text_color || '#ffffff',
+                                        border: 'none',
+                                    }}
+                                >
+                                    BOOKING
+                                </button>
+                            </div>
+
                         </div>
+
                     </div>
                 </div>
             </div>

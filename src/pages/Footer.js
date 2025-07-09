@@ -80,11 +80,17 @@ const Footer = () => {
                 </div>
 
                 {/* Social Media di kanan */}
-                <div style={{ flex: 'none', minWidth: 200, marginLeft: 'auto', textAlign: 'right' }}>
+                <div
+                    className="text-start text-md-end"
+                    style={{
+                        flex: 'none',
+                        minWidth: 200,
+                    }}
+                >
                     <h6 style={{ color: textColor, fontWeight: '700', marginBottom: '1rem' }}>
                         Follow Us
                     </h6>
-                    <div style={{ display: 'flex', gap: 15, justifyContent: 'flex-end' }}>
+                    <div className="d-flex justify-content-start justify-content-md-end" style={{ gap: 15 }}>
                         {socialLinks.map((item) => {
                             const value = aplikasi?.[item.key];
                             if (!value) return null;
@@ -119,16 +125,12 @@ const Footer = () => {
                         })}
                     </div>
                 </div>
+
             </div>
 
             <div
+                className="d-flex flex-wrap justify-content-between align-items-center mt-4 gap-3"
                 style={{
-                    marginTop: 30,
-                    display: 'flex',
-                    flexWrap: 'wrap',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
-                    gap: '1rem',
                     fontSize: '0.8rem',
                     color: textColor,
                 }}
@@ -137,7 +139,7 @@ const Footer = () => {
                     &copy; {new Date().getFullYear()} Kitaliburan.id. All rights reserved.
                 </div>
 
-                <div style={{ textAlign: 'right' }}>
+                <div className="text-start text-md-end w-100 w-md-auto">
                     <Link to="/about" style={{ margin: '0 8px', color: textColor, textDecoration: 'none' }}>
                         About Us
                     </Link>
@@ -155,6 +157,7 @@ const Footer = () => {
                     </Link>
                 </div>
             </div>
+
         </footer>
     );
 };
