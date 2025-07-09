@@ -213,7 +213,7 @@ function Header() {
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     style={{
-                                        background: getGradient(aplikasi),
+                                        background: aplikasi?.first_color,
                                         color: aplikasi?.first_text_color || '#ffffff',
                                         border: 'none',
                                     }}

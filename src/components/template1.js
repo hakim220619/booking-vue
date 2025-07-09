@@ -13,7 +13,7 @@ const MENU_ITEMS = [
 const aplikasi = JSON.parse(localStorage.getItem('aplikasi'));
 
 const PulauPahawang1D = () => {
-    const [activeTab, setActiveTab] = useState(null);
+    const [activeTab, setActiveTab] = useState('harga');
     const [showModal, setShowModal] = useState(false);
     const [selectedIndex, setSelectedIndex] = useState(null);
 
@@ -183,17 +183,16 @@ const PulauPahawang1D = () => {
             </div>
 
             {/* MENU & CONTENT */}
-            <div className="row">
-                <div className="col-md-3">
+            <div className="row g-3">
+                <div className="col-md-3 mb-3 mb-md-0">
                     <div className="list-group">
                         <div className="list-group-item fw-bold">Deskripsi</div>
                         {MENU_ITEMS.map((item) => (
                             <button
                                 key={item.key}
-                                className={`list-group-item list-group-item-action fw-semibold ${activeTab === item.key ? 'text-white' : 'text-dark'}`}
+                                className={`list-group-item list-group-item-action fw-semibold ${activeTab === item.key ? 'text-dark' : 'text-dark'}`}
                                 style={{
-                                    backgroundColor: activeTab === item.key ? '#FFA500' : 'transparent',
-
+                                    backgroundColor: activeTab === item.key ? '#EAEFEF' : 'transparent',
                                 }}
                                 onClick={() => setActiveTab(item.key)}
                             >
@@ -202,12 +201,14 @@ const PulauPahawang1D = () => {
                         ))}
                     </div>
                 </div>
+
                 <div className="col-md-9">
                     <div className="p-3 border rounded bg-white shadow-sm">
                         {renderContent()}
                     </div>
                 </div>
             </div>
+
 
             {/* MODAL GALLERY */}
             {

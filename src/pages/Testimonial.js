@@ -50,7 +50,7 @@ const TestimonialSection = () => (
         }}
     >
         <small className="text-uppercase" style={{ letterSpacing: '2px', color: '#555' }}>KITA LIBURAN</small>
-        <h2 className="my-3 fw-bold">Apa Kata Mereka Tentang Kitaliburan Tour Lampung?</h2>
+        <h2 className="my-3 fw-bold">Apa Kata Mereka Tentang KitaLiburan Tour Lampung?</h2>
         <p className="mx-auto mb-5" style={{ maxWidth: '700px', fontSize: '16px', lineHeight: '1.6' }}>
             Ratusan pelanggan puas telah merasakan serunya liburan bersama Kitaliburan Tour. Simak cerita dan pengalaman mereka selama menjelajahi Jogja dan destinasi lainnya bersama layanan terbaik kami.
         </p>

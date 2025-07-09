@@ -94,7 +94,7 @@ const Template2 = ({ title, description, tripInfo, price, onBooking }) => {
                                 className="position-absolute top-0 end-0 text-center"
                                 style={{
                                     border: `0.5px solid ${borderColor}`,
-                                    backgroundColor: aplikasi?.second_color,
+                                    // backgroundColor: aplikasi?.second_color,
                                     padding: '10px 15px',
                                     fontWeight: 'bold',
                                     minWidth: '110px'
@@ -104,9 +104,18 @@ const Template2 = ({ title, description, tripInfo, price, onBooking }) => {
                                 <div>
                                     Rp <span style={{ fontSize: '1.3em' }}>{formatPrice(price)}</span>
                                 </div>
-                                <button className="btn btn-sm btn-dark mt-2" onClick={onBooking}>
+                                <button
+                                    className="btn btn-sm mt-2"
+                                    onClick={onBooking}
+                                    style={{
+                                        backgroundColor: aplikasi?.main_color || aplikasi?.first_color,
+                                        color: aplikasi?.first_text_color || '#ffffff',
+                                        border: 'none',
+                                    }}
+                                >
                                     BOOKING
                                 </button>
+
                             </div>
                         </div>
                     </div>

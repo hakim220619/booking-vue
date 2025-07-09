@@ -88,7 +88,7 @@ function HeroSection() {
 
                 {/* Paket Wisata */}
                 <div className="container my-5 position-relative fade-in" style={{ zIndex: 1 }}>
-                    <h3 className="text-center fw-bold mb-4">PILIHAN PAKET WISATA KITALIBURAN.id</h3>
+                    <h3 className="text-center fw-bold mb-4">Pilihan Paket Wisata KitaLiburan.id</h3>
                     <div className="row g-4 justify-content-center">
                         {packages.map((pkg, index) => (
                             <div key={index} className="col-12 col-md-4 col-lg-3">
@@ -119,7 +119,7 @@ function HeroSection() {
                                             to="/wisata/detail-wisata"
                                             className="btn text-white"
                                             style={{
-                                                background: getGradient(aplikasi),
+                                                background: aplikasi?.first_color,
                                                 fontSize: '0.85rem',
                                             }}
                                         >

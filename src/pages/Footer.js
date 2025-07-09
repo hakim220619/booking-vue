@@ -4,6 +4,7 @@ import { getGradient } from '../utils/colors';
 
 const Footer = () => {
     const aplikasi = JSON.parse(localStorage.getItem('aplikasi'));
+    const textColor = aplikasi?.first_text_color || '#ffffff';
 
     const withProtocol = (url) => {
         if (!url) return '';
@@ -30,7 +31,7 @@ const Footer = () => {
         {
             key: 'tiktok',
             label: 'TikTok',
-            icon: 'https://upload.wikimedia.org/wikipedia/en/a/a9/TikTok_logo.svg',
+            icon: 'https://static.vecteezy.com/system/resources/previews/023/986/492/non_2x/tiktok-logo-tiktok-logo-transparent-tiktok-icon-transparent-free-free-png.png',
         },
     ];
 
@@ -38,12 +39,11 @@ const Footer = () => {
         <footer
             className="footer mt-5 p-4"
             style={{
-                background: getGradient(aplikasi),
+                background: '#254D70',
                 fontSize: '0.9rem',
-                color: aplikasi?.second_text_color,
+                color: textColor,
             }}
         >
-
             <div
                 className="container"
                 style={{
@@ -54,50 +54,34 @@ const Footer = () => {
                     justifyContent: 'space-between',
                     alignItems: 'flex-start',
                     gap: '1.5rem',
-                    paddingLeft: 'none',
-                    paddingRight: 'none',
                 }}
             >
                 {/* Office di kiri */}
-                <div
-                    style={{
-                        flex: 1,
-                        minWidth: 280,
-                        textAlign: 'left',
-
-                    }}
-                >
-                    <h6 style={{ fontWeight: '700', marginBottom: '0.8rem' }}>Office</h6>
-                    <p style={{ margin: '4px 0', }}>{aplikasi?.address || '-'}</p>
-                    <p style={{ margin: '4px 0', }}>
+                <div style={{ flex: 1, minWidth: 280, textAlign: 'left' }}>
+                    <h6 style={{ fontWeight: '700', marginBottom: '0.8rem', color: textColor }}>Office</h6>
+                    <p style={{ margin: '4px 0' }}>{aplikasi?.address || '-'}</p>
+                    <p style={{ margin: '4px 0' }}>
                         Whatsapp:{' '}
                         <a
                             href={`https://wa.me/${aplikasi?.contact?.replace(/\D/g, '')}`}
                             target="_blank"
                             rel="noreferrer"
-                            style={{ color: aplikasi?.second_text_color }}
+                            style={{ color: textColor }}
                         >
                             {aplikasi?.contact}
                         </a>
                     </p>
-                    <p style={{ margin: '4px 0', color: 'black' }}>
+                    <p style={{ margin: '4px 0' }}>
                         Email:{' '}
-                        <a href={`mailto:${aplikasi?.email}`} style={{ color: 'black' }}>
+                        <a href={`mailto:${aplikasi?.email}`} style={{ color: textColor }}>
                             {aplikasi?.email}
                         </a>
                     </p>
                 </div>
 
                 {/* Social Media di kanan */}
-                <div
-                    style={{
-                        flex: 'none',
-                        minWidth: 200,
-                        marginLeft: 'auto',
-                        textAlign: 'right',
-                    }}
-                >
-                    <h6 style={{ color: 'black', fontWeight: '700', marginBottom: '1rem' }}>
+                <div style={{ flex: 'none', minWidth: 200, marginLeft: 'auto', textAlign: 'right' }}>
+                    <h6 style={{ color: textColor, fontWeight: '700', marginBottom: '1rem' }}>
                         Follow Us
                     </h6>
                     <div style={{ display: 'flex', gap: 15, justifyContent: 'flex-end' }}>
@@ -146,7 +130,7 @@ const Footer = () => {
                     alignItems: 'center',
                     gap: '1rem',
                     fontSize: '0.8rem',
-                    color: 'black',
+                    color: textColor,
                 }}
             >
                 <div>
@@ -154,24 +138,23 @@ const Footer = () => {
                 </div>
 
                 <div style={{ textAlign: 'right' }}>
-                    <Link to="/about" style={{ margin: '0 8px', color: 'black', textDecoration: 'none' }}>
+                    <Link to="/about" style={{ margin: '0 8px', color: textColor, textDecoration: 'none' }}>
                         About Us
                     </Link>
                     |
-                    <Link to="/contact" style={{ margin: '0 8px', color: 'black', textDecoration: 'none' }}>
+                    <Link to="/contact" style={{ margin: '0 8px', color: textColor, textDecoration: 'none' }}>
                         Contact Us
                     </Link>
                     |
-                    <Link to="/terms" style={{ margin: '0 8px', color: 'black', textDecoration: 'none' }}>
+                    <Link to="/terms" style={{ margin: '0 8px', color: textColor, textDecoration: 'none' }}>
                         Syarat & Ketentuan
                     </Link>
                     |
-                    <Link to="/gallery" style={{ margin: '0 8px', color: 'black', textDecoration: 'none' }}>
+                    <Link to="/gallery" style={{ margin: '0 8px', color: textColor, textDecoration: 'none' }}>
                         Gallery
                     </Link>
                 </div>
             </div>
-
         </footer>
     );
 };
